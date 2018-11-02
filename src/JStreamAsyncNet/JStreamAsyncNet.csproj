@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Authors>ch1seL</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.2</Version>
+    <Description>Extensions to serialize and deserialize objects from/to a stream</Description>
+    <Copyright>ch1seL © 2018</Copyright>
+    <PackageTags>Stream JSON JObject async JsonConvert</PackageTags>
+    <PackageProjectUrl>https://github.com/ch1seL/JStreamAsyncNet</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
