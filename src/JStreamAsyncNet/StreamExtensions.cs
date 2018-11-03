@@ -13,11 +13,11 @@ namespace JStreamAsyncNet
 		{
 			using (stream)
 			{
-				using (var streamReader = new StreamReader(await stream))
+				using (var streamReader = new StreamReader(await stream.ConfigureAwait(false)))
 				{
 					using (var reader = new JsonTextReader(streamReader))
 					{
-						var jObject = await JObject.LoadAsync(reader, cancellationToken);
+						var jObject = await JObject.LoadAsync(reader, cancellationToken).ConfigureAwait(false);
 						return jObject.ToObject<T>(serializer ?? new JsonSerializer());
 					}
 				}
@@ -29,11 +29,11 @@ namespace JStreamAsyncNet
 		{
 			using (stream)
 			{
-				using (var streamReader = new StreamReader(await stream))
+				using (var streamReader = new StreamReader(await stream.ConfigureAwait(false)))
 				{
 					using (var reader = new JsonTextReader(streamReader))
 					{
-						var jArray = await JArray.LoadAsync(reader, cancellationToken);
+						var jArray = await JArray.LoadAsync(reader, cancellationToken).ConfigureAwait(false);
 						return jArray.ToObject<T[]>(serializer ?? new JsonSerializer());
 					}
 				}
@@ -45,11 +45,11 @@ namespace JStreamAsyncNet
 		{
 			using (stream)
 			{
-				using (var writer = new StreamWriter(await stream))
+				using (var writer = new StreamWriter(await stream.ConfigureAwait(false)))
 				{
 					JsonWriter jsonTextWriter = new JsonTextWriter(writer);
 					await JObject.FromObject(@object, serializer ?? new JsonSerializer())
-						.WriteToAsync(jsonTextWriter, cancellationToken);
+						.WriteToAsync(jsonTextWriter, cancellationToken).ConfigureAwait(false);
 				}
 			}
 		}
@@ -59,11 +59,11 @@ namespace JStreamAsyncNet
 		{
 			using (stream)
 			{
-				using (var writer = new StreamWriter(await stream))
+				using (var writer = new StreamWriter(await stream.ConfigureAwait(false)))
 				{
 					JsonWriter jsonTextWriter = new JsonTextWriter(writer);
 					await JArray.FromObject(array, serializer ?? new JsonSerializer())
-						.WriteToAsync(jsonTextWriter, cancellationToken);
+						.WriteToAsync(jsonTextWriter, cancellationToken).ConfigureAwait(false);
 				}
 			}
 		}

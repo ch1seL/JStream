@@ -7,7 +7,7 @@ namespace JStreamAsyncNet
 	{
 		public static async Task<T> ToObject<T>(this Task<HttpResponseMessage> response)
 		{
-			HttpResponseMessage result = await response;
+			HttpResponseMessage result = await response.ConfigureAwait(false);
 
 			result.EnsureSuccessStatusCode();
 
@@ -16,7 +16,7 @@ namespace JStreamAsyncNet
 
 		public static async Task<T[]> ToArray<T>(this Task<HttpResponseMessage> response)
 		{
-			HttpResponseMessage result = await response;
+			HttpResponseMessage result = await response.ConfigureAwait(false);
 
 			result.EnsureSuccessStatusCode();
 
