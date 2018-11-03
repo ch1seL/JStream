@@ -6,7 +6,7 @@
     <Authors>ch1seL</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.0.4</Version>
-    <Description>Extensions to serialize and deserialize objects from/to a async stream</Description>
+    <Description>Extensions to serialize and deserialize objects from/to an async stream</Description>
     <Copyright>ch1seL © 2018</Copyright>
     <PackageTags>Stream JSON JObject async JsonConvert</PackageTags>
     <PackageProjectUrl>https://github.com/ch1seL/JStreamAsyncNet</PackageProjectUrl>

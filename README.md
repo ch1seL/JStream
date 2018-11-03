@@ -1,6 +1,6 @@
 # JStreamAsyncNet
 
-Easy way to serialize and desirialize objects from/to a async stream
+Easy way to serialize and desirialize objects from/to an async stream
 
 ## How to use
 
@@ -11,18 +11,18 @@ Install-Package JStreamAsyncNet -Version 0.0.4
 ### Using with HttpResponseMessage
 
 ```c#
-MyObject @object = await HttpClient.GetAsync(uri).ToObject<MyObject>();
-MyObject array = await HttpClient.GetAsync(uri).ToArray<MyObject>();
+MyObject @object = await client.GetAsync(uriObject).ToObject<MyObject>();
+MyObject[] array = await client.GetAsync(uriArray).ToArray<MyObject>();
 ```
 
-or if you want to have control with the response(here's implementation of methods used above)
+or if you want to manage the response(here's implementation of methods used above)
 
 ```c#
-HttpResponseMessage responseObject = await client.GetAsync(url);
+HttpResponseMessage responseObject = await client.GetAsync(uriObject);
 responseObject.EnsureSuccessStatusCode();
 MyObject @object = await responseObject.Content.ReadAsStreamAsync().ToObject<MyObject>();
 
-HttpResponseMessage responseArray = await client.GetAsync(url);
+HttpResponseMessage responseArray = await client.GetAsync(uriArray);
 responseArray.EnsureSuccessStatusCode();
 MyObject[] array = await responseArray.Content.ReadAsStreamAsync().ToArray<MyObject>();
 ```
