@@ -3,6 +3,10 @@ Easy way to serialize and desirialize objects from/to a async stream
 
 ## How to use
 
+```
+Install-Package JStreamAsyncNet -Version 0.0.3
+```
+
 ### Using with HttpResponseMessage
 ```
 HttpResponseMessage objectResponse = await client.GetObjectResponse(url);
