@@ -8,7 +8,8 @@ namespace JStreamAsyncNet
 {
 	public static class StreamAsyncExtensions
 	{
-		public static async Task<T> ToObject<T>(this Task<Stream> stream, JsonSerializer serializer = null, CancellationToken cancellationToken = default(CancellationToken))
+		public static async Task<T> ToObject<T>(this Task<Stream> stream, JsonSerializer serializer = null,
+			CancellationToken cancellationToken = default)
 		{
 			using (stream)
 			{
@@ -23,7 +24,8 @@ namespace JStreamAsyncNet
 			}
 		}
 
-		public static async Task<T[]> ToArray<T>(this Task<Stream> stream, JsonSerializer serializer = null, CancellationToken cancellationToken = default(CancellationToken))
+		public static async Task<T[]> ToArray<T>(this Task<Stream> stream, JsonSerializer serializer = null,
+			CancellationToken cancellationToken = default)
 		{
 			using (stream)
 			{
@@ -38,26 +40,30 @@ namespace JStreamAsyncNet
 			}
 		}
 
-		public static async Task FromObject<T>(this Task<Stream> stream, T @object, JsonSerializer serializer = null, CancellationToken cancellationToken = default(CancellationToken))
+		public static async Task FromObject<T>(this Task<Stream> stream, T @object, JsonSerializer serializer = null,
+			CancellationToken cancellationToken = default)
 		{
 			using (stream)
 			{
 				using (var writer = new StreamWriter(await stream))
 				{
 					JsonWriter jsonTextWriter = new JsonTextWriter(writer);
-					await JObject.FromObject(@object, serializer ?? new JsonSerializer()).WriteToAsync(jsonTextWriter, cancellationToken);
+					await JObject.FromObject(@object, serializer ?? new JsonSerializer())
+						.WriteToAsync(jsonTextWriter, cancellationToken);
 				}
 			}
 		}
 
-		public static async Task FromArray<T>(this Task<Stream> stream, T[] array, JsonSerializer serializer = null, CancellationToken cancellationToken = default(CancellationToken))
+		public static async Task FromArray<T>(this Task<Stream> stream, T[] array, JsonSerializer serializer = null,
+			CancellationToken cancellationToken = default)
 		{
 			using (stream)
 			{
 				using (var writer = new StreamWriter(await stream))
 				{
 					JsonWriter jsonTextWriter = new JsonTextWriter(writer);
-					await JArray.FromObject(array, serializer ?? new JsonSerializer()).WriteToAsync(jsonTextWriter, cancellationToken);
+					await JArray.FromObject(array, serializer ?? new JsonSerializer())
+						.WriteToAsync(jsonTextWriter, cancellationToken);
 				}
 			}
 		}

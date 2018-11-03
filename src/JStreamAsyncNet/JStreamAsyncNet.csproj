@@ -5,11 +5,15 @@
     <LangVersion>latest</LangVersion>
     <Authors>ch1seL</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.2</Version>
-    <Description>Extensions to serialize and deserialize objects from/to a stream</Description>
+    <Version>0.0.3</Version>
+    <Description>Extensions to serialize and deserialize objects from/to a async stream</Description>
     <Copyright>ch1seL © 2018</Copyright>
     <PackageTags>Stream JSON JObject async JsonConvert</PackageTags>
     <PackageProjectUrl>https://github.com/ch1seL/JStreamAsyncNet</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/ch1seL/JStreamAsyncNet/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/ch1seL/JStreamAsyncNet</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
