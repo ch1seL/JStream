@@ -1,6 +1,6 @@
 # JStreamAsyncNet
 
-Easy way to serialize and desirialize objects from/to an async stream
+Easy way to serialize/desirialize objects to/from an async stream
 
 ## How to use
 
