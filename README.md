@@ -5,7 +5,7 @@ Easy way to serialize/deserialize objects to/from an async stream
 ## How to use
 
 ```powershell
-Install-Package JStreamAsyncNet -Version 0.0.8
+Install-Package JStreamAsyncNet -Version 0.1.0
 ```
 
 ### Using with HttpResponseMessage
@@ -30,11 +30,11 @@ MyObject[] array = await responseArray.Content.ReadAsStreamAsync().ToArray<MyObj
 ### Using with FileStream
 
 ```c#
-MyObject @object = await Task.Run(() => (Stream)File.OpenRead(filePath)).ToObject<MyObject>();
+MyObject @object = await File.OpenRead(filePath).ToObject<MyObject>();
 //some act for @object
-await Task.Run(() => (Stream)File.OpenWrite(filePath)).FromObject(@object);
+await File.OpenWrite(filePath).FromObject(@object);
 
-MyObject[] array = await Task.Run(() => (Stream)File.OpenRead(filePath)).ToArray<MyObject>();
+MyObject[] array = await File.OpenRead(filePath).ToArray<MyObject>();
 //some act for array
-await Task.Run(() => (Stream)File.OpenWrite(filePath)).FromArray(array);
+await File.OpenWrite(filePath).FromArray(array);
 ```
