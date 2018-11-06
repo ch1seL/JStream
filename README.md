@@ -1,11 +1,11 @@
 # JStreamAsyncNet
 
-Easy way to serialize/desirialize objects to/from an async stream
+Easy way to serialize/deserialize objects to/from an async stream
 
 ## How to use
 
 ```powershell
-Install-Package JStreamAsyncNet -Version 0.0.6
+Install-Package JStreamAsyncNet -Version 0.0.7
 ```
 
 ### Using with HttpResponseMessage
