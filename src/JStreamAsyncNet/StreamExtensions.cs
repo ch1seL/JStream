@@ -47,7 +47,8 @@ namespace JStreamAsyncNet
 			{
 				using (var writer = new StreamWriter(stream))
 				{
-					JsonWriter jsonTextWriter = new JsonTextWriter(writer);
+					JsonWriter jsonTextWriter = new JsonTextWriter(writer)
+						{Formatting = serializer?.Formatting ?? Formatting.None};
 					await JObject.FromObject(@object, serializer ?? new JsonSerializer())
 						.WriteToAsync(jsonTextWriter, cancellationToken).ConfigureAwait(false);
 				}
@@ -61,7 +62,8 @@ namespace JStreamAsyncNet
 			{
 				using (var writer = new StreamWriter(stream))
 				{
-					JsonWriter jsonTextWriter = new JsonTextWriter(writer);
+					JsonWriter jsonTextWriter = new JsonTextWriter(writer)
+						{Formatting = serializer?.Formatting ?? Formatting.None};
 					await JArray.FromObject(array, serializer ?? new JsonSerializer())
 						.WriteToAsync(jsonTextWriter, cancellationToken).ConfigureAwait(false);
 				}
