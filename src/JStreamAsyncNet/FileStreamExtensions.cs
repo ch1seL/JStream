@@ -19,16 +19,18 @@ namespace JStreamAsyncNet
 			return ((Stream) fileStream).ToArrayAsync<T>(serializer, cancellationToken);
 		}
 
-		public static async Task FromObjectAsync<T>(this FileStream fileStream, T @object, JsonSerializer serializer = null,
+		public static async Task WriteFromObjectAsync<T>(this FileStream fileStream, T @object,
+			JsonSerializer serializer = null,
 			CancellationToken cancellationToken = default)
 		{
-			await ((Stream) fileStream).FromObjectAsync(@object, serializer, cancellationToken);
+			await ((Stream) fileStream).WriteFromObjectAsync(@object, serializer, cancellationToken);
 		}
 
-		public static async Task FromArrayAsync<T>(this FileStream fileStream, T[] array, JsonSerializer serializer = null,
+		public static async Task WriteFromArrayAsync<T>(this FileStream fileStream, T[] array,
+			JsonSerializer serializer = null,
 			CancellationToken cancellationToken = default)
 		{
-			await ((Stream) fileStream).FromArrayAsync(array, serializer, cancellationToken);
+			await ((Stream) fileStream).WriteFromArrayAsync(array, serializer, cancellationToken);
 		}
 	}
 }

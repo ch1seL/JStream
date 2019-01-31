@@ -30,7 +30,8 @@ namespace JStreamAsyncNet
 			return await stream.ToObjectAsync<T[]>(serializer, cancellationToken);
 		}
 
-		public static async Task FromObjectAsync<T>(this Stream stream, T @object, JsonSerializer serializer = null,
+		public static async Task WriteFromObjectAsync<T>(this Stream stream, T @object,
+			JsonSerializer serializer = null,
 			CancellationToken cancellationToken = default)
 		{
 			using (stream)
@@ -44,10 +45,10 @@ namespace JStreamAsyncNet
 			}
 		}
 
-		public static async Task FromArrayAsync<T>(this Stream stream, T[] array, JsonSerializer serializer = null,
+		public static async Task WriteFromArrayAsync<T>(this Stream stream, T[] array, JsonSerializer serializer = null,
 			CancellationToken cancellationToken = default)
 		{
-			await stream.FromObjectAsync(array, serializer, cancellationToken);
+			await stream.WriteFromObjectAsync(array, serializer, cancellationToken);
 		}
 	}
 }

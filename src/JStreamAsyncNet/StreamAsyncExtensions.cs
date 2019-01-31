@@ -26,14 +26,15 @@ namespace JStreamAsyncNet
 			CancellationToken cancellationToken = default)
 		{
 			var stream = await streamTask.ConfigureAwait(false);
-			await stream.FromObjectAsync(@object, serializer, cancellationToken).ConfigureAwait(false);
+			await stream.WriteFromObjectAsync(@object, serializer, cancellationToken).ConfigureAwait(false);
 		}
 
-		public static async Task FromArrayAsync<T>(this Task<Stream> streamTask, T[] array, JsonSerializer serializer = null,
+		public static async Task FromArrayAsync<T>(this Task<Stream> streamTask, T[] array,
+			JsonSerializer serializer = null,
 			CancellationToken cancellationToken = default)
 		{
 			var stream = await streamTask.ConfigureAwait(false);
-			await stream.FromArrayAsync(array, serializer, cancellationToken).ConfigureAwait(false);
+			await stream.WriteFromArrayAsync(array, serializer, cancellationToken).ConfigureAwait(false);
 		}
 	}
 }
