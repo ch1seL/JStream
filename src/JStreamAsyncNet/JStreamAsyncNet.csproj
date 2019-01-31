@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/ch1seL/JStreamAsyncNet</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>add Stream and FileStream support</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

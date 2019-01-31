@@ -38,7 +38,7 @@ namespace JStreamAsyncNet
 			{
 				using (var writer = new StreamWriter(stream))
 				{
-					JsonWriter jsonTextWriter = new JsonTextWriter(writer);
+					JsonWriter jsonTextWriter = new JsonTextWriter(writer) { Formatting = serializer?.Formatting ?? Formatting.None };
 					await JToken.FromObject(@object, serializer ?? new JsonSerializer())
 						.WriteToAsync(jsonTextWriter, cancellationToken).ConfigureAwait(false);
 				}

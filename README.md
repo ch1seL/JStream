@@ -27,14 +27,14 @@ responseArray.EnsureSuccessStatusCode();
 MyObject[] array = await responseArray.Content.ReadAsStreamAsync().ToArrayAsync<MyObject>();
 ```
 
-### Using with FileStream
+### Using with FileStream and Stream
 
 ```c#
 MyObject @object = await File.OpenRead(filePath).ToObjectAsync<MyObject>();
 //some act for @object
-await File.OpenWrite(filePath).FromObjectAsync(@object);
+await File.OpenWrite(filePath).WriteFromObjectAsync(@object);
 
 MyObject[] array = await File.OpenRead(filePath).ToArrayAsync<MyObject>();
 //some act for array
-await File.OpenWrite(filePath).FromArrayAsync(array);
+await File.OpenWrite(filePath).WriteFromArrayAsync(array);
 ```
