@@ -5,22 +5,22 @@ namespace JStreamAsyncNet
 {
 	public static class HttpResponseMessageExtensions
 	{
-		public static async Task<T> ToObject<T>(this Task<HttpResponseMessage> response)
+		public static async Task<T> ToObjectAsync<T>(this Task<HttpResponseMessage> response)
 		{
 			HttpResponseMessage result = await response.ConfigureAwait(false);
 
 			result.EnsureSuccessStatusCode();
 
-			return await result.Content.ReadAsStreamAsync().ToObject<T>().ConfigureAwait(false);
+			return await result.Content.ReadAsStreamAsync().ToObjectAsync<T>().ConfigureAwait(false);
 		}
 
-		public static async Task<T[]> ToArray<T>(this Task<HttpResponseMessage> response)
+		public static async Task<T[]> ToArrayAsync<T>(this Task<HttpResponseMessage> response)
 		{
 			HttpResponseMessage result = await response.ConfigureAwait(false);
 
 			result.EnsureSuccessStatusCode();
 
-			return await result.Content.ReadAsStreamAsync().ToArray<T>().ConfigureAwait(false);
+			return await result.Content.ReadAsStreamAsync().ToArrayAsync<T>().ConfigureAwait(false);
 		}
 	}
 }

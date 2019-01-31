@@ -7,28 +7,28 @@ namespace JStreamAsyncNet
 {
 	public static class FileStreamExtensions
 	{
-		public static Task<T> ToObject<T>(this FileStream fileStream, JsonSerializer serializer = null,
+		public static Task<T> ToObjectAsync<T>(this FileStream fileStream, JsonSerializer serializer = null,
 			CancellationToken cancellationToken = default)
 		{
-			return ((Stream) fileStream).ToObject<T>(serializer, cancellationToken);
+			return ((Stream) fileStream).ToObjectAsync<T>(serializer, cancellationToken);
 		}
 
-		public static Task<T[]> ToArray<T>(this FileStream fileStream, JsonSerializer serializer = null,
+		public static Task<T[]> ToArrayAsync<T>(this FileStream fileStream, JsonSerializer serializer = null,
 			CancellationToken cancellationToken = default)
 		{
-			return ((Stream) fileStream).ToArray<T>(serializer, cancellationToken);
+			return ((Stream) fileStream).ToArrayAsync<T>(serializer, cancellationToken);
 		}
 
-		public static async Task FromObject<T>(this FileStream fileStream, T @object, JsonSerializer serializer = null,
+		public static async Task FromObjectAsync<T>(this FileStream fileStream, T @object, JsonSerializer serializer = null,
 			CancellationToken cancellationToken = default)
 		{
-			await ((Stream) fileStream).FromObject(@object, serializer, cancellationToken);
+			await ((Stream) fileStream).FromObjectAsync(@object, serializer, cancellationToken);
 		}
 
-		public static async Task FromArray<T>(this FileStream fileStream, T[] array, JsonSerializer serializer = null,
+		public static async Task FromArrayAsync<T>(this FileStream fileStream, T[] array, JsonSerializer serializer = null,
 			CancellationToken cancellationToken = default)
 		{
-			await ((Stream) fileStream).FromArray(array, serializer, cancellationToken);
+			await ((Stream) fileStream).FromArrayAsync(array, serializer, cancellationToken);
 		}
 	}
 }
