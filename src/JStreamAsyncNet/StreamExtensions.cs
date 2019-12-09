@@ -10,6 +10,7 @@ namespace JStreamAsyncNet
         public static async Task<T> ToObjectAsync<T>(this Stream stream, JsonSerializerOptions options = null,
             CancellationToken cancellationToken = default)
         {
+            options??=new JsonSerializerOptions {PropertyNameCaseInsensitive = false};
             await using (stream)
             {
                 return await JsonSerializer.DeserializeAsync<T>(stream, options, cancellationToken);
