@@ -9,8 +9,7 @@
     <Copyright>ch1seL © 2019</Copyright>
     <PackageTags>Stream JSON JObject async JsonConvert</PackageTags>
     <PackageProjectUrl>https://github.com/ch1seL/JStreamAsyncNet</PackageProjectUrl>    
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>    
     <RepositoryUrl>https://github.com/ch1seL/JStreamAsyncNet</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -19,8 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="$(PackageLicenseFile)" Pack="true" Visible="false" PackagePath="" />
-    <Content Include="$(PackageReadmeFile)" Pack="false" Visible="true" PackagePath="" />
+    <Content Include="$(PackageLicenseFile)" Pack="true" Visible="true" PackagePath="" />    
   </ItemGroup>
   
   <ItemGroup>
