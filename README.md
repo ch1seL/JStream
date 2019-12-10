@@ -2,6 +2,8 @@
 
 Easy way to serialize/deserialize objects to/from an async stream
 
+**Attention**: The stream will be disposed
+
 ## How to use
 
 ```powershell
