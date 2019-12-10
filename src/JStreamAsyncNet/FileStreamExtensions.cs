@@ -25,14 +25,14 @@ namespace JStreamAsyncNet
             JsonSerializerOptions options = null,
             CancellationToken cancellationToken = default)
         {
-            await ((Stream) fileStream).WriteFromObjectAsync(@object, options, cancellationToken);
+            await ((Stream) fileStream).WriteFromObjectAsync(@object, options, cancellationToken).ConfigureAwait(false);
         }
 
         public static async Task WriteFromArrayAsync<T>(this FileStream fileStream, T[] array,
             JsonSerializerOptions options = null,
             CancellationToken cancellationToken = default)
         {
-            await ((Stream) fileStream).WriteFromArrayAsync(array, options, cancellationToken);
+            await ((Stream) fileStream).WriteFromArrayAsync(array, options, cancellationToken).ConfigureAwait(false);
         }
     }
 }

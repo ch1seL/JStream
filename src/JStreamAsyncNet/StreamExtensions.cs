@@ -13,14 +13,14 @@ namespace JStreamAsyncNet
             options??=new JsonSerializerOptions {PropertyNameCaseInsensitive = false};
             await using (stream)
             {
-                return await JsonSerializer.DeserializeAsync<T>(stream, options, cancellationToken);
+                return await JsonSerializer.DeserializeAsync<T>(stream, options, cancellationToken).ConfigureAwait(false);
             }
         }
 
         public static async Task<T[]> ToArrayAsync<T>(this Stream stream, JsonSerializerOptions options = null,
             CancellationToken cancellationToken = default)
         {
-            return await stream.ToObjectAsync<T[]>(options, cancellationToken);
+            return await stream.ToObjectAsync<T[]>(options, cancellationToken).ConfigureAwait(false);
         }
 
         public static async Task WriteFromObjectAsync<T>(this Stream stream, T @object,
@@ -29,7 +29,7 @@ namespace JStreamAsyncNet
         {
             await using (stream)
             {
-                await JsonSerializer.SerializeAsync(stream, @object, options, cancellationToken);
+                await JsonSerializer.SerializeAsync(stream, @object, options, cancellationToken).ConfigureAwait(false);
             }
         }
 
@@ -37,7 +37,7 @@ namespace JStreamAsyncNet
             JsonSerializerOptions options = null,
             CancellationToken cancellationToken = default)
         {
-            await stream.WriteFromObjectAsync(array, options, cancellationToken);
+            await stream.WriteFromObjectAsync(array, options, cancellationToken).ConfigureAwait(false);
         }
     }
 }
