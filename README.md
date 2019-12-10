@@ -6,8 +6,15 @@ Easy way to serialize/deserialize objects to/from an async stream
 
 ## How to use
 
+### Nuget Package Manager Console:
+
 ```powershell
 Install-Package JStreamAsyncNet
+```
+
+### .Net CLI:
+```powershell
+dotnet add package JStreamAsyncNet
 ```
 
 ### Using with HttpResponseMessage
