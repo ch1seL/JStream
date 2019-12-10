@@ -4,7 +4,7 @@
     <LangVersion>8</LangVersion>
     <Authors>ch1seL</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>4.7.0</Version>
+    <Version>4.7.0.1</Version>
     <Description>Easy way to serialize/deserialize objects to/from an async stream</Description>
     <Copyright>ch1seL © 2019</Copyright>
     <PackageTags>Stream JSON JObject async JsonConvert</PackageTags>
