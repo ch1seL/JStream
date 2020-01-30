@@ -12,7 +12,10 @@ namespace ch1seL.Newtonsoft.AsyncExtensions
         public static async Task<T> GetJsonAsAsync<T>(this HttpClient client, string url,
             CancellationToken cancellationToken = default)
         {
-            return await client.GetAsync(url, cancellationToken).ToObjectAsync<T>();
+            return await client
+                .GetAsync(url, cancellationToken)
+                .ToObjectAsync<T>(cancellationToken: cancellationToken)
+                .ConfigureAwait(false);
         }
 
         public static async Task<TResult> PostAsJsonWithResultAsync<T, TResult>(this HttpClient client, string url,
@@ -20,10 +23,11 @@ namespace ch1seL.Newtonsoft.AsyncExtensions
         {
             HttpContent content = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8,
                 MediaTypeNames.Application.Json);
-            var responseMessage = await client.PostAsync(url, content, cancellationToken);
-            responseMessage.EnsureSuccessStatusCode();
-            return await responseMessage.Content.ReadAsStreamAsync()
-                .ToObjectAsync<TResult>(cancellationToken: cancellationToken);
+            
+            return await client
+                .PostAsync(url, content, cancellationToken)
+                .ToObjectAsync<TResult>(cancellationToken: cancellationToken)
+                .ConfigureAwait(false);
         }
 
         public static async Task<HttpResponseMessage> PostAsJsonAsync<T>(this HttpClient client, string url, T obj,
@@ -31,7 +35,10 @@ namespace ch1seL.Newtonsoft.AsyncExtensions
         {
             HttpContent content = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8,
                 MediaTypeNames.Application.Json);
-            return await client.PostAsync(url, content, cancellationToken);
+            
+            return await client
+                .PostAsync(url, content, cancellationToken)
+                .ConfigureAwait(false);
         }
 
         public static async Task<HttpResponseMessage> PutAsJsonAsync<T>(this HttpClient client, string url, T obj,
@@ -39,7 +46,10 @@ namespace ch1seL.Newtonsoft.AsyncExtensions
         {
             HttpContent content = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8,
                 MediaTypeNames.Application.Json);
-            return await client.PutAsync(url, content, cancellationToken);
+            
+            return await client
+                .PutAsync(url, content, cancellationToken)
+                .ConfigureAwait(false);
         }
 
         public static async Task<TResult> PutAsJsonWithResultAsync<T, TResult>(this HttpClient client, string url,
@@ -47,10 +57,11 @@ namespace ch1seL.Newtonsoft.AsyncExtensions
         {
             HttpContent content = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8,
                 MediaTypeNames.Application.Json);
-            var responseMessage = await client.PutAsync(url, content, cancellationToken);
-            responseMessage.EnsureSuccessStatusCode();
-            return await responseMessage.Content.ReadAsStreamAsync()
-                .ToObjectAsync<TResult>(cancellationToken: cancellationToken);
+            
+            return await client
+                .PutAsync(url, content, cancellationToken)
+                .ToObjectAsync<TResult>(cancellationToken: cancellationToken)
+                .ConfigureAwait(false);
         }
     }
 }
