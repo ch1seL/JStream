@@ -26,22 +26,20 @@ namespace ch1seL.Newtonsoft.AsyncExtensions
                 .ToObjectAsync<TResult>(cancellationToken: cancellationToken);
         }
 
-        public static async Task PostAsJsonAsync<T>(this HttpClient client, string url, T obj,
+        public static async Task<HttpResponseMessage> PostAsJsonAsync<T>(this HttpClient client, string url, T obj,
             CancellationToken cancellationToken = default)
         {
             HttpContent content = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8,
                 MediaTypeNames.Application.Json);
-            var responseMessage = await client.PostAsync(url, content, cancellationToken);
-            responseMessage.EnsureSuccessStatusCode();
+            return await client.PostAsync(url, content, cancellationToken);
         }
 
-        public static async Task PutAsJsonAsync<T>(this HttpClient client, string url, T obj,
+        public static async Task<HttpResponseMessage> PutAsJsonAsync<T>(this HttpClient client, string url, T obj,
             CancellationToken cancellationToken = default)
         {
             HttpContent content = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8,
                 MediaTypeNames.Application.Json);
-            var responseMessage = await client.PutAsync(url, content, cancellationToken);
-            responseMessage.EnsureSuccessStatusCode();
+            return await client.PutAsync(url, content, cancellationToken);
         }
 
         public static async Task<TResult> PutAsJsonWithResultAsync<T, TResult>(this HttpClient client, string url,

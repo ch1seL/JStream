@@ -13,10 +13,10 @@ Install-Package ch1seL.JStreamAsyncExtensions.Newtonsoft
 ```c#
 MyObject @object = await client.GetJsonAsAsync<MyObject>(uriObject);
 
-await client.PostAsJsonAsync(uri, @object)
+HttpResponseMessage response = await client.PostAsJsonAsync(uri, @object)
 ResponseObject responseObject = await client.PostAsJsonWithResultAsync<RequestObject,ResponseObject>(uri, requestObject)
 
-await client.PutAsJsonAsync(uri, @object)
+HttpResponseMessage response = await client.PutAsJsonAsync(uri, @object)
 ResponseObject responseObject = await client.PutAsJsonWithResultAsync<RequestObject,ResponseObject>(uri, requestObject)
 ```
 
