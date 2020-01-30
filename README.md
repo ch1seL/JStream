@@ -8,6 +8,18 @@ Easy way to serialize/deserialize objects to/from an async stream
 Install-Package ch1seL.JStreamAsyncExtensions.Newtonsoft
 ```
 
+### Using with HttpClient
+
+```c#
+MyObject @object = await client.GetJsonAsAsync<MyObject>(uriObject);
+
+await client.PostAsJsonAsync(uri, @object)
+ResponseObject responseObject = await client.PostAsJsonWithResultAsync<RequestObject,ResponseObject>(uri, requestObject)
+
+await client.PutAsJsonAsync(uri, @object)
+ResponseObject responseObject = await client.PutAsJsonWithResultAsync<RequestObject,ResponseObject>(uri, requestObject)
+```
+
 ### Using with HttpResponseMessage
 
 ```c#
