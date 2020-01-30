@@ -14,5 +14,12 @@ namespace ch1seL.Newtonsoft.AsyncExtensions
 
             return await result.Content.ReadAsStreamAsync().ToObjectAsync<T>(cancellationToken: cancellationToken).ConfigureAwait(false);
         }
+        
+        public static async Task<T> ToObjectAsync<T>(this HttpResponseMessage response, CancellationToken cancellationToken = default)
+        {
+            response.EnsureSuccessStatusCode();
+
+            return await response.Content.ReadAsStreamAsync().ToObjectAsync<T>(cancellationToken: cancellationToken).ConfigureAwait(false);
+        }
     }
 }
