@@ -1,10 +1,9 @@
 ﻿using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace JStreamAsyncNet
+namespace Newtonsoft.Json.JStreamAsyncNetExtensions
 {
     public static class StreamExtensions
     {
