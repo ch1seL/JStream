@@ -9,7 +9,7 @@ namespace ch1seL.Newtonsoft.AsyncExtensions
 {
     public static class HttpClientExtensions
     {
-        public static async Task<T> GetJsonAs<T>(this HttpClient client, string url,
+        public static async Task<T> GetJsonAsAsync<T>(this HttpClient client, string url,
             CancellationToken cancellationToken = default)
         {
             return await client.GetAsync(url, cancellationToken).ToObjectAsync<T>();
