@@ -4,7 +4,7 @@
     <LangVersion>8</LangVersion>
     <Authors>ch1seL</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Description>Easy way to serialize/deserialize objects to/from an async stream</Description>
     <Copyright>ch1seL © 2020</Copyright>
     <PackageTags>Stream JSON JObject async JsonConvert</PackageTags>
@@ -17,7 +17,7 @@
     <AssemblyName>ch1seL.Newtonsoft.AsyncExtensions</AssemblyName>
     <RootNamespace>ch1seL.Newtonsoft.AsyncExtensions</RootNamespace>
     <PackageId>ch1seL.JStreamAsyncExtensions.Newtonsoft</PackageId>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.0.2</PackageVersion>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
