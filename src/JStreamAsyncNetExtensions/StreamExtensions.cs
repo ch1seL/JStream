@@ -1,16 +1,17 @@
 ﻿using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Newtonsoft.Json.JStreamAsyncNetExtensions
+namespace ch1seL.Newtonsoft.AsyncExtensions
 {
     public static class StreamExtensions
     {
         public static async Task<T> ToObjectAsync<T>(this Stream stream, JsonSerializer serializer = null,
             CancellationToken cancellationToken = default)
         {
-            using (stream)
+            await using (stream)
             {
                 using var streamReader = new StreamReader(stream);
                 using var reader = new JsonTextReader(streamReader);
@@ -29,9 +30,9 @@ namespace Newtonsoft.Json.JStreamAsyncNetExtensions
             JsonSerializer serializer = null,
             CancellationToken cancellationToken = default)
         {
-            using (stream)
+            await using (stream)
             {
-                using var writer = new StreamWriter(stream);
+                await using var writer = new StreamWriter(stream);
                 JsonWriter jsonTextWriter = new JsonTextWriter(writer)
                     {Formatting = serializer?.Formatting ?? Formatting.None};
                 await JToken.FromObject(@object, serializer ?? new JsonSerializer())

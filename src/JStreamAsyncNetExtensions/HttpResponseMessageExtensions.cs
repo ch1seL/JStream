@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Newtonsoft.Json.JStreamAsyncNetExtensions
+namespace ch1seL.Newtonsoft.AsyncExtensions
 {
     public static class HttpResponseMessageExtensions
     {

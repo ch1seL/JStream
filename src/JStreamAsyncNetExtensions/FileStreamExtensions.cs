@@ -1,8 +1,9 @@
 ﻿using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace Newtonsoft.Json.JStreamAsyncNetExtensions
+namespace ch1seL.Newtonsoft.AsyncExtensions
 {
     public static class FileStreamExtensions
     {

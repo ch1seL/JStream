@@ -1,11 +1,11 @@
-# JStreamAsyncNet
+# ch1seL.JStreamAsyncExtensions.Newtonsoft
 
 Easy way to serialize/deserialize objects to/from an async stream
 
 ## How to use
 
 ```powershell
-Install-Package ch1seL.Newtonsoft.JStreamAsyncNetExtensions -Version 12.0.3
+Install-Package ch1seL.JStreamAsyncExtensions.Newtonsoft
 ```
 
 ### Using with HttpResponseMessage
